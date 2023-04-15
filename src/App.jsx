@@ -1,7 +1,9 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import PeriodicTable from "./components/PeriodicTable";
+import Element from "./components/Element";
 import Filter from "./components/Filter";
+import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [table, setTable] = useState([]);
@@ -37,7 +39,7 @@ function App() {
             try {
               const response = await fetch(API_URL);
               const json = await response.json();
-              console.log(json);
+              //console.log(json);
               setTable(json);
             }
             catch (error) {
@@ -47,23 +49,35 @@ function App() {
         fetchData();
     }, []);
   
+  const showDetails = (e) => {
+    console.log(e);
+  }
+  
   return (
     <div className="App">
       <div className="filter">
         <Filter />
       </div>
+      <BrowserRouter>
       <div id="gallery">
-        <h1>Table</h1>
-        {
+        <h1>Periodic Table</h1>
+      {       
       table.map((item) => {
         return (
-          <div className={`element tile `+ item.groupBlock.replace(/\s/g, "-")} key={item.atomicNumber}>
-            <PeriodicTable periodTable={item} />
-          </div>
+          <Link to={`element/${item.name}`} key={item.atomicNumber}>
+            <div className={`element tile ` + item.groupBlock.replace(/\s/g, "-")}>
+              <PeriodicTable periodTable={item} onClick={() => { showDetails(item) } } />
+            </div>
+          </Link>
         )
       })
-        }
+      }
       </div>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="element/:elementId" element={<Element />} />
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }

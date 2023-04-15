@@ -10,6 +10,7 @@ body {
   overflow-x: hidden;
   background-color: #223255;
   counter-reset: element;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1,
@@ -18,10 +19,13 @@ h3,
 p {
   color: #fff;
 }
+a {
+  text-decoration: none;
+}
 
 h1 {
   //padding: 2.5rem;
-  text-align: center;
+  text-align: left;
   margin: 0;
   display: grid;
   place-items: center;
@@ -29,13 +33,18 @@ h1 {
 
 .filter {
   position: fixed;
-  top: 20vh;
+  top: 0;
   right: 0;
+  width: 100vw;
   z-index: 999;
-  background-color: green;
-  padding: 0.5rem;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 2px;
+  background-color: #223255;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 15px;
+  p {
+    color: #fff;
+  }
 }
 
 .element {
@@ -51,11 +60,12 @@ h1 {
   padding-bottom: 5rem;
   display: grid;
   gap: 1rem;
-  place-items: center;
-  padding: 5rem 4rem;
+  //place-items: center;
+  padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 5rem 4rem;
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -89,52 +99,52 @@ h1 {
     left: 6px;
     font-size: 0.9rem;
     font-weight: lighter;
-    color: #fff;
+    color: #1e1e1e;
   }
 }
 
 .nonmetal {
-  background-color: #5f9595;
+  background-color: rgb(108, 129, 174);
   order: 1;
 }
 .alkali-metal {
-  background-color: #f0bc68;
+  background-color: #5f9595;
   order: 2;
 }
 .transition-metal {
-  background-color: #a5bcb5;
+  background-color: #76bc80;
   order: 3;
 }
 .metalloid {
-  background-color: #bd8975;
+  background-color: rgb(227, 210, 75);
   order: 4;
 }
 .halogen {
-  background-color: #87d591;
+  background-color: #d9ac64;
   order: 5;
 }
 .noble-gas {
-  background-color: rgb(219, 205, 98);
+  background-color: tan;
   order: 6;
 }
 .alkaline-earth-metal {
-  background-color: rgb(136, 123, 210);
+  background-color: rgb(179, 89, 89);
   order: 7;
 }
 .metal {
-  background-color: rgb(185, 118, 140);
+  background-color: #bd8975;
   order: 8;
 }
 .lanthanoid {
-  background-color: rgb(162, 67, 67);
+  background-color: rgb(185, 118, 140);
   order: 9;
 }
 .actinoid {
-  background-color: rgb(91, 113, 160);
+  background-color: #97847e;
   order: 10;
 }
 .post-transition-metal {
-  background-color: tan;
+  background-color: #a5bcb5;
   order: 11;
 }
 
