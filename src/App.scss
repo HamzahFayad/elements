@@ -4,8 +4,8 @@
   box-sizing: border-box;
   background-color: #223255;
   height: 100vh;
+  //overflow: hidden;
 }
-
 body {
   overflow-x: hidden;
   background-color: #223255;
@@ -20,6 +20,7 @@ p {
 }
 
 h1 {
+  //padding: 2.5rem;
   text-align: center;
   margin: 0;
   display: grid;
@@ -40,6 +41,7 @@ h1 {
 .element {
   transition: transform 500ms ease;
   height: 80px;
+  //clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0 50%);
   display: grid;
   place-items: center;
 }
@@ -52,14 +54,10 @@ h1 {
   place-items: center;
   padding: 5rem 4rem;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-}
-@media screen and (min-width: 768px) {
-  #gallery {
+  @media screen and (min-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-}
-@media screen and (min-width: 1024px) {
-  #gallery {
+  @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
@@ -75,98 +73,84 @@ h1 {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .tile {
+  @media screen and (min-width: 768px) {
     width: 180px;
     height: 180px;
   }
-}
-@media screen and (min-width: 1024px) {
-  .tile {
+  @media screen and (min-width: 1024px) {
     width: 150px;
     height: 150px;
   }
-}
-.tile::before {
-  counter-increment: element;
-  content: counter(element);
-  position: absolute;
-  bottom: 5px;
-  left: 6px;
-  font-size: 0.9rem;
-  font-weight: lighter;
-  color: #fff;
+  &::before {
+    counter-increment: element;
+    content: counter(element);
+    position: absolute;
+    bottom: 5px;
+    left: 6px;
+    font-size: 0.9rem;
+    font-weight: lighter;
+    color: #fff;
+  }
 }
 
 .nonmetal {
   background-color: #5f9595;
   order: 1;
 }
-
 .alkali-metal {
   background-color: #f0bc68;
   order: 2;
 }
-
 .transition-metal {
   background-color: #a5bcb5;
   order: 3;
 }
-
 .metalloid {
   background-color: #bd8975;
   order: 4;
 }
-
 .halogen {
   background-color: #87d591;
   order: 5;
 }
-
 .noble-gas {
-  background-color: #dbcd62;
+  background-color: rgb(219, 205, 98);
   order: 6;
 }
-
 .alkaline-earth-metal {
-  background-color: #887bd2;
+  background-color: rgb(136, 123, 210);
   order: 7;
 }
-
 .metal {
-  background-color: #b9768c;
+  background-color: rgb(185, 118, 140);
   order: 8;
 }
-
 .lanthanoid {
-  background-color: #a24343;
+  background-color: rgb(162, 67, 67);
   order: 9;
 }
-
 .actinoid {
-  background-color: #5b71a0;
+  background-color: rgb(91, 113, 160);
   order: 10;
 }
-
 .post-transition-metal {
   background-color: tan;
   order: 11;
 }
 
-.PeriodicTable .symbol {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #1c1c1c;
-}
-.PeriodicTable .name {
-  font-size: 0.8rem;
-  color: #1c1c1c;
+.PeriodicTable {
+  .symbol {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #1c1c1c;
+  }
+  .name {
+    font-size: 0.8rem;
+    color: #1c1c1c;
+  }
 }
 
 .tile:hover {
   transform: scale(0.98);
   opacity: 0.9;
 }
-
-/*# sourceMappingURL=App.css.map */
