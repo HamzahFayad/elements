@@ -4,6 +4,7 @@ function PeriodicTable({periodTable, onClick}) {
 
     return (
         <div className="PeriodicTable" onClick={onClick}>
+            {/*<span>{periodTable.atomicMass}</span>*/}
             <p className="symbol">{periodTable.symbol}</p>
             <p className="name">{periodTable.name}</p>
         </div>

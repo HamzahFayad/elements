@@ -1,6 +1,6 @@
 function Filter() {
     
-    const groups = ["All", "nonmetal","metal", "noble"]
+    const groups = ["All", "nonmetal","metal", "alkali metal", "alkaline earth metal", "transition metal", "metalloid", "noble"]
     return (
         <>
             {

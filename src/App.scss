@@ -24,6 +24,11 @@ p {
 a {
   text-decoration: none;
 }
+span {
+  font-size: 0.75rem;
+  color: white;
+  text-shadow: 0.5px 1px 4px #1c1c1c9a;
+}
 
 h1 {
   //padding: 2.5rem;
@@ -102,6 +107,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+  box-shadow: 1px 1px 8px #1c1c1c7c;
   @media screen and (min-width: 768px) {
     width: 160px;
     height: 160px;
