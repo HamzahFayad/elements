@@ -5,6 +5,11 @@
   background-color: #223255;
   height: 100vh;
 }
+@media screen and (max-width: 786px) {
+  .App {
+    padding: 5rem 0;
+  }
+}
 
 body {
   overflow-x: hidden;
@@ -42,6 +47,7 @@ h1 {
   flex-flow: row wrap;
   justify-content: center;
   gap: 15px;
+  padding: 0.75rem 0;
 }
 .filter p {
   color: #fff;
@@ -61,6 +67,7 @@ h1 {
   gap: 1rem;
   padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  transition: all 500ms;
 }
 @media screen and (min-width: 768px) {
   #gallery {
@@ -71,6 +78,17 @@ h1 {
 @media screen and (min-width: 1024px) {
   #gallery {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.resize {
+  width: 60vw;
+  float: right;
+  transition: all 500ms;
+}
+@media screen and (max-width: 1024px) {
+  .resize {
+    width: 50vw;
   }
 }
 
@@ -125,32 +143,32 @@ h1 {
 }
 
 .metalloid {
-  background-color: #e3d24b;
+  background-color: #a0bc76;
   order: 4;
 }
 
 .halogen {
-  background-color: #d9ac64;
+  background-color: #e3d24b;
   order: 5;
 }
 
 .noble-gas {
-  background-color: tan;
+  background-color: #b48c58;
   order: 6;
 }
 
 .alkaline-earth-metal {
-  background-color: #b35959;
+  background-color: #c27a40;
   order: 7;
 }
 
 .metal {
-  background-color: #bd8975;
+  background-color: #b35959;
   order: 8;
 }
 
 .lanthanoid {
-  background-color: #b9768c;
+  background-color: #aa6f83;
   order: 9;
 }
 
@@ -177,6 +195,54 @@ h1 {
 .tile:hover {
   transform: scale(0.98);
   opacity: 0.9;
+}
+
+/*ELEMENT*/
+.Element {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40vw;
+  height: 100vh;
+  z-index: 999;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateX(1000%);
+  animation: show 600ms ease-out forwards;
+}
+@media screen and (min-width: 1024px) {
+  .Element {
+    width: 20vw;
+  }
+}
+
+.Element.hide-element {
+  animation: hide 400ms ease-out forwards;
+}
+
+.back-btn {
+  cursor: pointer;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -4,6 +4,9 @@
   box-sizing: border-box;
   background-color: #223255;
   height: 100vh;
+  @media screen and (max-width: 786px) {
+    padding: 5rem 0;
+  }
   //overflow: hidden;
 }
 body {
@@ -42,6 +45,7 @@ h1 {
   flex-flow: row wrap;
   justify-content: center;
   gap: 15px;
+  padding: 0.75rem 0;
   p {
     color: #fff;
   }
@@ -63,12 +67,21 @@ h1 {
   //place-items: center;
   padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  transition: all 500ms;
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     padding: 5rem 4rem;
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+.resize {
+  width: 60vw;
+  float: right;
+  transition: all 500ms;
+  @media screen and(max-width: 1024px) {
+    width: 50vw;
   }
 }
 
@@ -116,27 +129,27 @@ h1 {
   order: 3;
 }
 .metalloid {
-  background-color: rgb(227, 210, 75);
+  background-color: #a0bc76; //rgb(227, 210, 75)
   order: 4;
 }
 .halogen {
-  background-color: #d9ac64;
+  background-color: rgb(227, 210, 75);
   order: 5;
 }
 .noble-gas {
-  background-color: tan;
+  background-color: rgb(180, 140, 88);
   order: 6;
 }
 .alkaline-earth-metal {
-  background-color: rgb(179, 89, 89);
+  background-color: rgb(194, 122, 64); //rgb(179, 89, 89);
   order: 7;
 }
 .metal {
-  background-color: #bd8975;
+  background-color: rgb(179, 89, 89);
   order: 8;
 }
 .lanthanoid {
-  background-color: rgb(185, 118, 140);
+  background-color: rgb(170, 111, 131); // rgb(185, 118, 140);
   order: 9;
 }
 .actinoid {
@@ -163,4 +176,50 @@ h1 {
 .tile:hover {
   transform: scale(0.98);
   opacity: 0.9;
+}
+
+/*ELEMENT*/
+.Element {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40vw;
+  height: 100vh;
+  //background-color: #223255e8;
+  z-index: 999;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateX(1000%);
+  animation: show 600ms ease-out forwards;
+  @media screen and (min-width: 1024px) {
+    width: 20vw;
+  }
+}
+.Element.hide-element {
+  animation: hide 400ms ease-out forwards;
+}
+.back-btn {
+  cursor: pointer;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
 }

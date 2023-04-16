@@ -4,6 +4,7 @@ import PeriodicTable from "./components/PeriodicTable";
 import Element from "./components/Element";
 import Filter from "./components/Filter";
 import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
+import Home from "./components/Home";
 
 function App() {
   const [table, setTable] = useState([]);
@@ -50,7 +51,7 @@ function App() {
     }, []);
   
   const showDetails = (e) => {
-    console.log(e);
+    //console.log(e);
   }
   
   return (
@@ -64,8 +65,8 @@ function App() {
       {       
       table.map((item) => {
         return (
-          <Link to={`element/${item.name}`} key={item.atomicNumber}>
-            <div className={`element tile ` + item.groupBlock.replace(/\s/g, "-")}>
+          <Link className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
+            <div>
               <PeriodicTable periodTable={item} onClick={() => { showDetails(item) } } />
             </div>
           </Link>
@@ -74,7 +75,7 @@ function App() {
       }
       </div>
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Home />} />
           <Route path="element/:elementId" element={<Element />} />
       </Routes>
       </BrowserRouter>
