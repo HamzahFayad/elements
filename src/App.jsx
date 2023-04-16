@@ -60,8 +60,9 @@ function App() {
         <Filter />
       </div>
       <BrowserRouter>
-      <div id="gallery">
-        <h1>Periodic Table</h1>
+      <section className="data-table">
+          <h1>Periodic Table</h1>
+        <div id="gallery">
       {       
       table.map((item) => {
         return (
@@ -73,7 +74,8 @@ function App() {
         )
       })
       }
-      </div>
+        </div>
+      </section>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="element/:elementId" element={<Element />} />

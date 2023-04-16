@@ -37,7 +37,6 @@ h1 {
 }
 
 .filter {
-  position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
@@ -60,6 +59,11 @@ h1 {
   place-items: center;
 }
 
+.data-table {
+  width: 100%;
+  transition: all 250ms;
+}
+
 #gallery {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -67,11 +71,10 @@ h1 {
   gap: 1rem;
   padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  transition: all 500ms;
 }
 @media screen and (min-width: 768px) {
   #gallery {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding: 5rem 4rem;
   }
 }
@@ -81,14 +84,22 @@ h1 {
   }
 }
 
-.resize {
-  width: 60vw;
-  float: right;
-  transition: all 500ms;
+.data-table.resize {
+  transition: all 250ms ease-in-out;
 }
-@media screen and (max-width: 1024px) {
-  .resize {
-    width: 50vw;
+@media screen and (max-width: 900px) {
+  .data-table.resize {
+    width: 58%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .data-table.resize {
+    width: 68%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .data-table.resize {
+    width: 100%;
   }
 }
 
@@ -106,8 +117,8 @@ h1 {
 }
 @media screen and (min-width: 768px) {
   .tile {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -212,8 +223,22 @@ h1 {
 }
 @media screen and (min-width: 1024px) {
   .Element {
-    width: 20vw;
+    width: 30vw;
   }
+}
+@media screen and (max-width: 900px) {
+  .Element {
+    width: 30vw;
+  }
+}
+@media screen and (max-width: 599px) {
+  .Element {
+    width: 100vw;
+    left: 0;
+  }
+}
+.Element h1 {
+  display: block;
 }
 
 .Element.hide-element {

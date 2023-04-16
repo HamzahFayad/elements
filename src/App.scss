@@ -35,7 +35,7 @@ h1 {
 }
 
 .filter {
-  position: fixed;
+  //position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
@@ -59,6 +59,10 @@ h1 {
   place-items: center;
 }
 
+.data-table {
+  width: 100%;
+  transition: all 250ms;
+}
 #gallery {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -67,21 +71,24 @@ h1 {
   //place-items: center;
   padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  transition: all 500ms;
   @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding: 5rem 4rem;
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
-.resize {
-  width: 60vw;
-  float: right;
-  transition: all 500ms;
-  @media screen and(max-width: 1024px) {
-    width: 50vw;
+.data-table.resize {
+  transition: all 250ms ease-in-out;
+  @media screen and(max-width: 900px) {
+    width: 58%;
+  }
+  @media screen and(min-width: 900px) {
+    width: 68%;
+  }
+  @media screen and(max-width: 599px) {
+    width: 100%;
   }
 }
 
@@ -97,8 +104,8 @@ h1 {
   text-align: center;
   cursor: pointer;
   @media screen and (min-width: 768px) {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
   @media screen and (min-width: 1024px) {
     width: 150px;
@@ -192,7 +199,17 @@ h1 {
   transform: translateX(1000%);
   animation: show 600ms ease-out forwards;
   @media screen and (min-width: 1024px) {
-    width: 20vw;
+    width: 30vw;
+  }
+  @media screen and(max-width: 900px) {
+    width: 30vw;
+  }
+  @media screen and(max-width: 599px) {
+    width: 100vw;
+    left: 0;
+  }
+  h1 {
+    display: block;
   }
 }
 .Element.hide-element {

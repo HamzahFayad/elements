@@ -3,31 +3,25 @@ import { useEffect, useState } from 'react';
 function Element() {
 	const navigate = useNavigate();
   const goBack = () => {
-    //setIsLoaded(false);
     document.querySelector(".Element").classList.add("hide-element");
-    setTimeout(() => { navigate(-1) },500);
+    setTimeout(() => { navigate(`/`); document.querySelector(".data-table").classList.remove("resize"); },300);
 	}
     const { elementId } = useParams();
 
   const [data, setData] = useState([]);
-  //const [loaded, setIsLoaded] = useState(false);
 
-    const fetchUserData = async () => {
+  const fetchUserData = async () => {
     await fetch(`https://neelpatel05.pythonanywhere.com/element/atomicname?atomicname=${elementId}`)
       .then(response => {
         return response.json()
       })
       .then(data => {
         setData(data);
-        /*setIsLoaded(true);
-        document.querySelector("#gallery").classList.remove("resize");*/
       })
     }
-  
-  /*if (loaded == true) {
-      document.querySelector("#gallery").classList.add("resize");
-  }*/
+
   useEffect(() => {
+    document.querySelector(".data-table").classList.add("resize");
     fetchUserData();
     }, [data]);
     
