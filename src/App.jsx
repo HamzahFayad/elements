@@ -8,6 +8,7 @@ import Home from "./components/Home";
 
 function App() {
   const [table, setTable] = useState([]);
+  //const [item, setItem] = useState(1);
   //const gallery = document.getElementById("gallery");
 
 /*window.onmousemove = e => {
@@ -53,7 +54,7 @@ function App() {
   const showDetails = (e) => {
     //console.log(e);
   }
-  
+
   return (
     <div className="App">
       <div className="filter">
@@ -70,7 +71,7 @@ function App() {
         return (
           <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
             <div>
-              <PeriodicTable periodTable={item} onClick={() => { showDetails(item) } } />
+              <PeriodicTable id={item.atomicNumber} periodTable={item} onClick={() => { showDetails(item)} } />
             </div>
           </Link>
         )

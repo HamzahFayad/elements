@@ -267,6 +267,28 @@ h1 {
   display: block;
   text-shadow: 0.5px 1px 4px #1c1c1c9a;
 }
+.Element .navig-btns {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.Element .navig-btns button {
+  border: none;
+  padding: 0.75rem;
+  margin-right: 1%;
+  margin-bottom: 2.5%;
+  color: #223255;
+  background-color: #fff;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+.Element .navig-btns button:hover {
+  background-color: #223255;
+  color: #fff;
+}
 .Element svg {
   max-width: 35px;
 }
