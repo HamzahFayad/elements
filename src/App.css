@@ -87,8 +87,9 @@ h1 {
   padding-bottom: 5rem;
   display: grid;
   gap: 1rem;
+  place-items: center;
   padding: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 @media screen and (min-width: 768px) {
   #gallery {
@@ -122,8 +123,8 @@ h1 {
 }
 
 .tile {
-  width: 125px;
-  height: 125px;
+  width: 150px;
+  height: 150px;
   display: flex;
   position: relative;
   justify-content: center;
