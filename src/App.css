@@ -22,6 +22,8 @@ body {
 h3,
 p {
   color: #1c1c1c;
+  margin: 0;
+  line-height: 2;
 }
 
 a {
@@ -39,6 +41,17 @@ h1 {
   margin: 0;
   display: grid;
   place-items: center;
+  padding: 2rem 0;
+}
+
+.Grid-width-wide {
+  max-width: 1920px;
+  width: 90vw;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.Grid-width-wide p {
+  color: #fff;
 }
 
 .filter {
@@ -170,22 +183,22 @@ h1 {
 }
 
 .noble-gas {
-  background-color: #b48c58;
+  background-color: #c27a40;
   order: 6;
 }
 
 .alkaline-earth-metal {
-  background-color: #c27a40;
+  background-color: #b35959;
   order: 7;
 }
 
 .metal {
-  background-color: #b35959;
+  background-color: #b35978;
   order: 8;
 }
 
 .lanthanoid {
-  background-color: #aa6f83;
+  background-color: #bf8892;
   order: 9;
 }
 
@@ -220,9 +233,14 @@ h1 {
   top: 0;
   right: 0;
   width: 40vw;
-  height: 100vh;
+  height: auto;
   z-index: 999;
   padding: 2rem;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
   opacity: 0;
   transform: translateX(1000%);
   transition: all 300ms ease-in-out;
@@ -236,19 +254,33 @@ h1 {
 @media screen and (max-width: 900px) {
   .Element {
     width: 30vw;
+    padding: 1rem;
   }
 }
 @media screen and (max-width: 599px) {
   .Element {
-    width: 100vw;
+    width: auto;
     left: 0;
   }
 }
 .Element h1 {
   display: block;
-}
-.Element h1 {
   text-shadow: 0.5px 1px 4px #1c1c1c9a;
+}
+.Element svg {
+  max-width: 35px;
+}
+.Element .element-content {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0 1rem;
+}
+.Element img {
+  display: block;
+  padding: 0.5rem 0;
+}
+.Element .real-image {
+  max-width: 250px;
 }
 
 .Element.hide-element {

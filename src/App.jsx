@@ -60,13 +60,15 @@ function App() {
         <Filter />
       </div>
       <BrowserRouter>
-      <section className="data-table">
-          <h1>Periodic Table</h1>
+        <section className="data-table">
+          <div className="Head Grid-width-wide">
+            <h1>Periodic Table of the Elements</h1>
+          </div>
         <div id="gallery">
       {       
       table.map((item) => {
         return (
-          <Link className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
+          <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
             <div>
               <PeriodicTable periodTable={item} onClick={() => { showDetails(item) } } />
             </div>
