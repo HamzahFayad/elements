@@ -8,7 +8,7 @@ import Home from "./components/Home";
 
 function App() {
   const [table, setTable] = useState([]);
-  const [filter, setFilter] = useState("nonmetal");
+  const [filter, setFilter] = useState("");
 
   const handleFilterFunc = (filter) => {
     setFilter(filter);
@@ -48,6 +48,18 @@ function App() {
   
   //filter(group => group.groupBlock === "halogen")
 
+  var tableData = (
+    table.map((item) => {
+        return (
+          <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
+            <div>
+              <PeriodicTable id={item.atomicNumber} periodTable={item} onClick={() => { showDetails(item.name)} } />
+            </div>
+          </Link>
+        )
+    })
+  )
+
     useEffect(() => {
         const API_URL = "https://neelpatel05.pythonanywhere.com";
         const fetchData = async () => {
@@ -66,15 +78,16 @@ function App() {
   
   const showDetails = (e) => {
     //console.log(e);
+    console.log(e);
+    document.getElementById(e).scrollIntoView();
   }
 
   return (
     <div className="App">
       <div className="filter">
-        <button onClick={show}>Show All</button>
+        <li onClick={show}>Show All</li>
         <Filter handleFilter={handleFilterFunc} />
       </div>
-      <p style={{color: "white"}}>Filter: {filter}</p>
       <BrowserRouter>
         <section className="data-table">
           <div className="Head Grid-width-wide">
@@ -86,22 +99,14 @@ function App() {
         return (
           <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
             <div>
-              <PeriodicTable id={item.atomicNumber} periodTable={item} onClick={() => { showDetails(item)} } />
+              <PeriodicTable id={item.atomicNumber} periodTable={item} onClick={() => { showDetails(item.name)} } />
             </div>
           </Link>
         )
       })
       }
       { filter === "" &&     
-      table.map((item) => {
-        return (
-          <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
-            <div>
-              <PeriodicTable id={item.atomicNumber} periodTable={item} onClick={() => { showDetails(item)} } />
-            </div>
-          </Link>
-        )
-      })
+          tableData
       }
         </div>
       </section>

@@ -63,11 +63,21 @@ h1 {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 15px;
-  padding: 0.75rem 0;
+  gap: 25px;
+  padding: 1.5rem 0;
 }
 .filter p {
   color: #fff;
+}
+.filter li {
+  list-style-type: none;
+  padding: 0.5rem;
+  background-color: #5f959587;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.filter li:hover {
+  opacity: 0.9;
 }
 
 .element {

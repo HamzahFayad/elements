@@ -7,7 +7,7 @@ function Filter({ handleFilter}) {
             {
                 groups.map((name) => {
                     return (
-                        <button onClick={() => handleFilter(name)} key={name}>{name}</button>
+                        <li onClick={() => handleFilter(name)} key={name}>{name}</li>
                     )
                 })
             }
