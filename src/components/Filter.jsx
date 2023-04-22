@@ -1,12 +1,13 @@
-function Filter() {
+
+function Filter({ handleFilter}) {
     
-    const groups = ["All", "nonmetal","metal", "alkali metal", "alkaline earth metal", "transition metal", "metalloid", "noble"]
+    const groups = ["nonmetal","metal", "alkali metal", "alkaline earth metal", "transition metal", "metalloid", "noble gas"]
     return (
         <>
             {
                 groups.map((name) => {
                     return (
-                        <p key={name}>{name}</p>
+                        <button onClick={() => handleFilter(name)} key={name}>{name}</button>
                     )
                 })
             }

@@ -94,7 +94,7 @@ h1 {
 @media screen and (min-width: 768px) {
   #gallery {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    padding: 5rem 4rem;
+    padding: 4rem 4rem;
   }
 }
 @media screen and (min-width: 1024px) {

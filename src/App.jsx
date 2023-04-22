@@ -8,6 +8,19 @@ import Home from "./components/Home";
 
 function App() {
   const [table, setTable] = useState([]);
+  const [filter, setFilter] = useState("nonmetal");
+
+  const handleFilterFunc = (filter) => {
+    setFilter(filter);
+    console.log(filter);
+  }
+
+  const show = () => {
+    setFilter("");
+  }
+
+  const f = table.filter(f => f.groupBlock === filter);
+
   //const [item, setItem] = useState(1);
   //const gallery = document.getElementById("gallery");
 
@@ -58,15 +71,28 @@ function App() {
   return (
     <div className="App">
       <div className="filter">
-        <Filter />
+        <button onClick={show}>Show All</button>
+        <Filter handleFilter={handleFilterFunc} />
       </div>
+      <p style={{color: "white"}}>Filter: {filter}</p>
       <BrowserRouter>
         <section className="data-table">
           <div className="Head Grid-width-wide">
             <h1>Periodic Table of the Elements</h1>
           </div>
         <div id="gallery">
-      {       
+      { filter !== "" &&     
+      f.map((item) => {
+        return (
+          <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
+            <div>
+              <PeriodicTable id={item.atomicNumber} periodTable={item} onClick={() => { showDetails(item)} } />
+            </div>
+          </Link>
+        )
+      })
+      }
+      { filter === "" &&     
       table.map((item) => {
         return (
           <Link id={item.name} className={`element tile ` + item.groupBlock.replace(/\s/g, "-")} to={`element/${item.name}`} key={item.atomicNumber}>
