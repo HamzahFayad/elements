@@ -38,9 +38,9 @@ function Element() {
         <p>Symbol: <strong>{data?.symbol && data?.symbol}</strong></p>
         <p>Group: <strong>{data?.groupBlock && data?.groupBlock}</strong></p>        
         <p>Atomic Mass: <strong>{data?.atomicMass && data?.atomicMass}</strong></p>
-        <p>Standard State: <strong>{data?.standardState && data?.standardState}</strong></p>
-        <p>Boiling Point: <strong>{data?.boilingPoint && Math.round(data?.boilingPoint -273.15 )} ° Celsius</strong></p>
-        <p>Melting Point: <strong>{data?.meltingPoint && Math.round(data?.meltingPoint -273.15 )} ° Celsius</strong></p>
+        {data?.standardState && <p>Standard State: <strong>{data?.standardState && data?.standardState}</strong></p>}
+        {data?.boilingPoint && <p>Boiling Point: <strong>{data?.boilingPoint && Math.round(data?.boilingPoint - 273.15)} ° Celsius</strong></p>}
+        {data?.meltingPoint && <p>Melting Point: <strong>{data?.meltingPoint && Math.round(data?.meltingPoint - 273.15)} ° Celsius</strong></p>}
         <p>discovered in <strong>{data?.yearDiscovered && data?.yearDiscovered}</strong></p>
       </div>
       <div className='more-content'>

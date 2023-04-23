@@ -1,7 +1,8 @@
 
-function Filter({ handleFilter}) {
-    
-    const groups = ["nonmetal","metal", "alkali metal", "alkaline earth metal", "transition metal", "metalloid", "noble gas"]
+
+function Filter({ handleFilter }) {
+        
+    const groups = ["nonmetal","metal", "alkali metal", "alkaline earth metal", "transition metal", "metalloid", "noble gas", "halogen", "lanthanoid", "actinoid", "post transition metal"]
     return (
         <>
             {
