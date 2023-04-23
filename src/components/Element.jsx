@@ -25,7 +25,7 @@ function Element() {
   useEffect(() => {
     document.querySelector(".data-table").classList.add("resize");
     fetchUserData();
-  }, [data]);
+  });
   
     
   return (
