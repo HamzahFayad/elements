@@ -99,17 +99,20 @@ h1 {
   padding-top: 5rem;
   padding-bottom: 5rem;
   display: grid;
-  gap: 1rem;
+  gap: 15px;
   place-items: center;
   padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 599px) {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+  /*@media screen and (min-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding: 4rem 4rem;
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
+  }*/
 }
 .data-table.resize {
   transition: all 250ms ease-in-out;
@@ -136,14 +139,15 @@ h1 {
   text-align: center;
   cursor: pointer;
   box-shadow: 1px 1px 8px #1c1c1c7c;
-  @media screen and (min-width: 768px) {
-    width: 160px;
-    height: 160px;
+  @media screen and (max-width: 599px) {
+    width: 80px;
+    padding: 10px;
+    height: 80px;
   }
-  @media screen and (min-width: 1024px) {
+  /*@media screen and (min-width: 1024px) {
     width: 150px;
     height: 150px;
-  }
+  }*/
   &::before {
     counter-increment: element;
     content: counter(element);
@@ -153,6 +157,9 @@ h1 {
     font-size: 0.9rem;
     font-weight: lighter;
     color: #1e1e1e;
+    @media screen and (max-width: 599px) {
+      font-size: 0.7rem;
+    }
   }
 }
 

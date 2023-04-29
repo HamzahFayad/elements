@@ -104,20 +104,21 @@ h1 {
   padding-top: 5rem;
   padding-bottom: 5rem;
   display: grid;
-  gap: 1rem;
+  gap: 15px;
   place-items: center;
   padding: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
-@media screen and (min-width: 768px) {
-  #gallery {
+  /*@media screen and (min-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding: 4rem 4rem;
   }
-}
-@media screen and (min-width: 1024px) {
-  #gallery {
+  @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }*/
+}
+@media screen and (max-width: 599px) {
+  #gallery {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
 }
 
@@ -152,17 +153,16 @@ h1 {
   text-align: center;
   cursor: pointer;
   box-shadow: 1px 1px 8px #1c1c1c7c;
-}
-@media screen and (min-width: 768px) {
-  .tile {
-    width: 160px;
-    height: 160px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .tile {
+  /*@media screen and (min-width: 1024px) {
     width: 150px;
     height: 150px;
+  }*/
+}
+@media screen and (max-width: 599px) {
+  .tile {
+    width: 80px;
+    padding: 10px;
+    height: 80px;
   }
 }
 .tile::before {
@@ -174,6 +174,11 @@ h1 {
   font-size: 0.9rem;
   font-weight: lighter;
   color: #1e1e1e;
+}
+@media screen and (max-width: 599px) {
+  .tile::before {
+    font-size: 0.7rem;
+  }
 }
 
 .nonmetal {

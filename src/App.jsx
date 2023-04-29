@@ -17,6 +17,8 @@ function App() {
 
   const show = () => {
     setFilter("");
+    const defaultSelect = document.querySelector('.filter-select');
+    defaultSelect.value = '';
   }
 
   const f = table.filter(f => f.groupBlock === filter);
@@ -60,8 +62,8 @@ function App() {
   return (
     <div className="App">
       <div className="filter">
-        <li onClick={show}>Show All</li>
         <Filter handleFilter={handleFilterFunc} />
+        <li onClick={show}>Reset Filter</li>
       </div>
       <BrowserRouter>
         <section className="data-table">
